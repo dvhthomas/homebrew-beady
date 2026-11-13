@@ -1,6 +1,6 @@
 cask "beady" do
-  version "0.6.2"
-  sha256 "a700b5658dc407a3f60e54144fd6e10f15d56e3e564bfa44c6eaee0bd6c99077"
+  version "0.6.3"
+  sha256 "b3abaf309bf12b613efd072d716828bf5d1723f204f0a8884b1156a0e83dd3ba"
 
   url "https://github.com/dvhthomas/beady/releases/download/v#{version}/Beady-#{version}.zip"
   name "Beady"
@@ -13,6 +13,8 @@ cask "beady" do
   end
 
   depends_on arch: :arm64
+  # Beady is a window onto bd and does nothing without it, so bd comes with it.
+  depends_on formula: "beads"
   depends_on macos: :sequoia
 
   # Beady has no Developer ID behind it, so every release carries a new ad-hoc signature that
@@ -45,9 +47,8 @@ cask "beady" do
 
         xattr -dr com.apple.quarantine "#{appdir}/Beady.app"
 
-      Beady drives bd, which it looks for on PATH and in Homebrew's bin:
-
-        brew install beads
+      Beady drives bd. Homebrew installed it alongside (the beads formula) and
+      keeps it up to date with: brew upgrade beads
     EOS
   end
 end
