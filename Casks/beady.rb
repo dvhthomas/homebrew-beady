@@ -1,6 +1,6 @@
 cask "beady" do
-  version "0.6.3"
-  sha256 "b3abaf309bf12b613efd072d716828bf5d1723f204f0a8884b1156a0e83dd3ba"
+  version "0.7.0"
+  sha256 "3a099496ef34b96b3d6e98f5fa1c8c32fcaaac0897e29c6517a23a39732ffed5"
 
   url "https://github.com/dvhthomas/beady/releases/download/v#{version}/Beady-#{version}.zip"
   name "Beady"
